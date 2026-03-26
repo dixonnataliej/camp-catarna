@@ -1,0 +1,26 @@
+<h2 class="text-lg font-semibold mb-1">Step 4 of 6 — Assign Workers</h2>
+<p class="text-sm text-gray-500 mb-5">
+  <%= @town.workers %> workers available (out of <%= @town.population %> population).
+</p>
+
+<%= form_with url: workers_week_advance_path, method: :post do |f| %>
+  <div class="space-y-4 mb-6">
+    <div>
+      <%= f.label :food_workers, "Food workers", class: "block text-sm font-medium mb-1" %>
+      <%= f.number_field :food_workers, min: 0, value: 0,
+            class: "border rounded px-3 py-2 w-24" %>
+    </div>
+    <div>
+      <%= f.label :material_workers, "Materials workers", class: "block text-sm font-medium mb-1" %>
+      <%= f.number_field :material_workers, min: 0, value: 0,
+            class: "border rounded px-3 py-2 w-24" %>
+    </div>
+    <div>
+      <%= f.label :personal_notes, "Personal tasks (optional)", class: "block text-sm font-medium mb-1" %>
+      <%= f.text_area :personal_notes, rows: 2,
+            placeholder: "e.g. Frelja training, Hanif with Gildra",
+            class: "border rounded px-3 py-2 w-full" %>
+    </div>
+  </div>
+  <%= f.submit "Next →", class: "bg-stone-800 text-white px-4 py-2 rounded hover:bg-stone-700 cursor-pointer" %>
+<% end %>

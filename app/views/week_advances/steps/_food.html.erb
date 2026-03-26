@@ -1,0 +1,19 @@
+<div class="mb-5 p-3 bg-amber-50 border border-amber-200 rounded text-sm space-y-1">
+  <div><strong>Weather:</strong> <%= session[:week_draft]["weather_roll"] %> — <%= WeekResolver::WEATHER_EFFECTS[session[:week_draft]["weather_roll"].to_i][:label] %></div>
+  <div><strong>Health:</strong> <%= @health_label %></div>
+</div>
+
+<h2 class="text-lg font-semibold mb-1">Step 3 of 6 — Food Consumption</h2>
+<p class="text-sm text-gray-500 mb-5">Auto-calculated from population.</p>
+
+<div class="bg-white border rounded-lg p-4 mb-5 text-center inline-block">
+  <div class="text-sm text-gray-500 uppercase tracking-wide">Food consumed this week</div>
+  <div class="text-4xl font-bold mt-1 text-red-600">&minus;<%= @food_consumed %></div>
+  <div class="text-xs text-gray-400 mt-1"><%= @town.population %> population &divide; 10</div>
+</div>
+
+<div class="block">
+  <%= form_with url: food_week_advance_path, method: :post do |f| %>
+    <%= f.submit "Next →", class: "bg-stone-800 text-white px-4 py-2 rounded hover:bg-stone-700 cursor-pointer" %>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<h2 class="text-lg font-semibold mb-1">Step 5 of 6 — Dice Results</h2>
+<p class="text-sm text-gray-500 mb-5">
+  Enter how many dice hit. Hit threshold: <strong><%= @food_threshold %>+</strong> on 1d6.
+</p>
+
+<%= form_with url: results_week_advance_path, method: :post do |f| %>
+  <div class="space-y-4 mb-6">
+    <div>
+      <%= f.label :food_hits, "Food hits", class: "block text-sm font-medium mb-1" %>
+      <p class="text-xs text-gray-400 mb-1">
+        <%= session[:week_draft]["food_workers"] %> workers, hits on <%= @food_threshold %>+
+      </p>
+      <%= f.number_field :food_hits, min: 0, value: 0,
+            class: "border rounded px-3 py-2 w-24" %>
+    </div>
+    <div>
+      <%= f.label :material_hits, "Materials hits", class: "block text-sm font-medium mb-1" %>
+      <p class="text-xs text-gray-400 mb-1">
+        <%= session[:week_draft]["material_workers"] %> workers, hits on 5+
+      </p>
+      <%= f.number_field :material_hits, min: 0, value: 0,
+            class: "border rounded px-3 py-2 w-24" %>
+    </div>
+  </div>
+  <%= f.submit "Next →", class: "bg-stone-800 text-white px-4 py-2 rounded hover:bg-stone-700 cursor-pointer" %>
+<% end %>

@@ -1,0 +1,11 @@
+<h2 class="text-lg font-semibold mb-1">Step 1 of 6 — Weather</h2>
+<p class="text-sm text-gray-500 mb-5">Roll 1d12 and enter the result.</p>
+
+<%= form_with url: weather_week_advance_path, method: :post do |f| %>
+  <div class="mb-5">
+    <%= f.label :weather_roll, "Weather roll (1–12)", class: "block text-sm font-medium mb-1" %>
+    <%= f.number_field :weather_roll, min: 1, max: 12, required: true,
+          class: "border rounded px-3 py-2 w-24" %>
+  </div>
+  <%= f.submit "Next →", class: "bg-stone-800 text-white px-4 py-2 rounded hover:bg-stone-700 cursor-pointer" %>
+<% end %>

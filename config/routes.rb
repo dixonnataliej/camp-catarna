@@ -11,4 +11,12 @@ Rails.application.routes.draw do
 
   root "dashboard#index"
   get "history", to: "history#index"
+
+  get  "week_advance/new",     to: "week_advances#new",     as: :new_week_advance
+  post "week_advance/weather", to: "week_advances#weather", as: :weather_week_advance
+  post "week_advance/health",  to: "week_advances#health",  as: :health_week_advance
+  post "week_advance/food",    to: "week_advances#food",    as: :food_week_advance
+  post "week_advance/workers", to: "week_advances#workers", as: :workers_week_advance
+  post "week_advance/results", to: "week_advances#results", as: :results_week_advance
+  post "week_advance/confirm", to: "week_advances#confirm", as: :confirm_week_advance
 end

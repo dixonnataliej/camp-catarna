@@ -1,0 +1,23 @@
+<div class="mb-5 p-3 bg-amber-50 border border-amber-200 rounded text-sm">
+  <strong>Weather:</strong> <%= @weather_label %>
+  <% if @weather_summary.present? %>
+    &mdash; <%= @weather_summary %>
+  <% end %>
+</div>
+
+<h2 class="text-lg font-semibold mb-1">Step 2 of 6 — Health</h2>
+<p class="text-sm text-gray-500 mb-1">Roll 1d12 and enter the result.</p>
+<% if @health_roll_bonus > 0 %>
+  <p class="text-sm text-green-700 mb-4">Harvest Time: +<%= @health_roll_bonus %> to health roll.</p>
+<% else %>
+  <div class="mb-4"></div>
+<% end %>
+
+<%= form_with url: health_week_advance_path, method: :post do |f| %>
+  <div class="mb-5">
+    <%= f.label :health_roll, "Health roll (1–12)", class: "block text-sm font-medium mb-1" %>
+    <%= f.number_field :health_roll, min: 1, max: 12, required: true,
+          class: "border rounded px-3 py-2 w-24" %>
+  </div>
+  <%= f.submit "Next →", class: "bg-stone-800 text-white px-4 py-2 rounded hover:bg-stone-700 cursor-pointer" %>
+<% end %>
