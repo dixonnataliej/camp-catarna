@@ -1,0 +1,2 @@
+class GroupTask < ApplicationRecord
+end
