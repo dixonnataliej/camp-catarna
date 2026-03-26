@@ -10,8 +10,6 @@
 # Ignore all environment files.
 /.env*
 
-*/.DS_Store
-.DS_Store
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -37,16 +35,3 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
-
-.byebug_history
-coverage/
-/config/credentials/staging.key
-
-/config/credentials/development.key
-
-/config/credentials/production.key
-
-/config/credentials/integration.key
-
-/config/credentials/test.key
-
