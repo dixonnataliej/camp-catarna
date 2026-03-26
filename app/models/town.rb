@@ -8,6 +8,6 @@ class Town < ApplicationRecord
   end
 
   def food_consumed_this_week
-    population / 10
+    (population.to_f / 10).ceil
   end
 end

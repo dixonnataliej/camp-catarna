@@ -18,7 +18,7 @@ RSpec.describe "Advance Week", type: :system do
     click_button "Next →"
 
     # Step 3: food review — consumed shown, confirm
-    expect(page).to have_text("16")
+    expect(page).to have_text("17")
     click_button "Next →"
 
     # Step 4: workers
@@ -39,7 +39,7 @@ RSpec.describe "Advance Week", type: :system do
     # Redirected to dashboard — now on week 4
     expect(page).to have_current_path(root_path)
     expect(page).to have_text("Week 4")
-    expect(page).to have_text("76") # 68 - 16 + 24
+    expect(page).to have_text("75") # 68 - 17 + 24
   end
 
   it "shows Harvest Time food threshold on the dice results step" do

@@ -26,7 +26,7 @@ A session-by-session town tracker for the players of the Usul campaign. Players 
 - **Town:** Camp Catarna — singleton data model, one row
 - **Week:** The core unit of play. Each week: Weather Roll → Health Roll → Food Consumption → Task Assignment → Task Resolution
 - **Workers:** Available population after subtracting sick/injured NPCs
-- **Food consumption:** −1 food per 10 population per week
+- **Food consumption:** ceiling(population / 10) per week — rounds up to account for player characters not tracked in population
 - **Tasks:** Gather Food, Gather Materials, Build, Group Task, Personal Task
 - **Hit threshold:** Default 5+ on 1d6; modified by weather (e.g., Harvest Time drops food threshold to 4+)
 

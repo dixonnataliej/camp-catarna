@@ -98,18 +98,18 @@ RSpec.describe WeekResolver do
   end
 
   describe "food and materials" do
-    it "calculates food_consumed as population / 10 (integer division)" do
-      expect(resolver.food_consumed).to eq(16) # 165 / 10
+    it "calculates food_consumed as ceiling(population / 10)" do
+      expect(resolver.food_consumed).to eq(17) # ceil(165 / 10)
     end
 
     it "calculates new_food correctly" do
-      # 68 - 16 + 24 + 0 (Good Weather, no food delta) = 76
-      expect(resolver(food_hits: 24).new_food).to eq(76)
+      # 68 - 17 + 24 + 0 (Good Weather, no food delta) = 75
+      expect(resolver(food_hits: 24).new_food).to eq(75)
     end
 
     it "applies weather food delta for Bad Weather" do
-      # 68 - 16 + 24 - 2 = 74
-      expect(resolver(weather_roll: 2, food_hits: 24).new_food).to eq(74)
+      # 68 - 17 + 24 - 2 = 73
+      expect(resolver(weather_roll: 2, food_hits: 24).new_food).to eq(73)
     end
 
     it "calculates new_materials correctly" do
@@ -162,7 +162,7 @@ RSpec.describe WeekResolver do
 
     it "updates the town food" do
       resolver(food_hits: 24).resolve!
-      expect(Town.current.food).to eq(76)
+      expect(Town.current.food).to eq(75) # 68 - 17 + 24
     end
 
     it "updates the town materials" do

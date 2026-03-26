@@ -25,12 +25,12 @@ RSpec.describe Town, type: :model do
   end
 
   describe "#food_consumed_this_week" do
-    it "returns floor(population / 10)" do
+    it "rounds up (ceiling) to account for player characters not in population" do
       town = build(:town, population: 165)
-      expect(town.food_consumed_this_week).to eq(16)
+      expect(town.food_consumed_this_week).to eq(17)
     end
 
-    it "floors correctly for exact multiples" do
+    it "is exact for clean multiples of 10" do
       town = build(:town, population: 100)
       expect(town.food_consumed_this_week).to eq(10)
     end
