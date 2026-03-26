@@ -25,7 +25,8 @@
   <body class="bg-gray-50 min-h-screen">
     <nav class="bg-stone-800 text-white px-6 py-3 flex items-center gap-6">
       <span class="font-bold text-lg tracking-wide">Camp Catarna</span>
-      <%= link_to "Dashboard", root_path, class: "text-stone-300 hover:text-white text-sm" %>
+      <%= link_to "Dashboard", root_path,  class: "text-stone-300 hover:text-white text-sm" %>
+      <%= link_to "History",   history_path, class: "text-stone-300 hover:text-white text-sm" %>
     </nav>
     <main class="py-6">
       <%= yield %>
